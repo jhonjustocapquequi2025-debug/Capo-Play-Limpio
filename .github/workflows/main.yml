@@ -5,11 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fabricar
-        uses: ArtemShatalov/buildozer-action@v1.6.1
+      - name: Fabricar APK
+        uses: kivy/buildozer-action@v1.2.3
         with:
           buildozer_version: stable
-      - uses: actions/upload-artifact@v4
+      - name: Subir Archivo
+        uses: actions/upload-artifact@v4
         with:
           name: CapoPlay-APK
           path: bin/*.apk
