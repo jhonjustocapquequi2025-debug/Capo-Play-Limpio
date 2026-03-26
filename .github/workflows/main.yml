@@ -2,11 +2,13 @@ name: Fabricar APK
 on: [push, workflow_dispatch]
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - name: Build with Buildozer
-        uses: ArtemShatalov/buildozer-action@v1.6.1
+        uses: ArtemShatalov/buildozer-action@v1
         with:
           workdir: .
           buildozer_version: stable
