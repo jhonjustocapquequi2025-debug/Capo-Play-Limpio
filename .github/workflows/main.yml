@@ -5,11 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build
-        uses: ArtemShatalov/buildozer-action@v1
+      - name: Fabricar
+        uses: ArtemShatalov/buildozer-action@v1.6.1
         with:
           buildozer_version: stable
       - uses: actions/upload-artifact@v4
         with:
-          name: CapoPlay
+          name: CapoPlay-APK
           path: bin/*.apk
