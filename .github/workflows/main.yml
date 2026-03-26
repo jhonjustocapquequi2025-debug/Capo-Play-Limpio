@@ -1,0 +1,17 @@
+name: Fabricar APK
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build with Buildozer
+        uses: ArtemShatalov/buildozer-action@v1.2.1
+        with:
+          workdir: .
+          buildozer_version: master
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: CapoPlay-APK
+          path: bin/*.apk
