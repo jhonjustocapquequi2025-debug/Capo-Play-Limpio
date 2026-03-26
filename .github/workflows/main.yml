@@ -1,17 +1,15 @@
-name: Fabricar APK
+name: Build
 on: [push, workflow_dispatch]
-permissions:
-  contents: write
 jobs:
-  build:
+  apk:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fabricar con Buildozer
-        uses: kivy/buildozer-action@v1.2.4
+      - name: Fabricar APK
+        uses: kivy/buildozer-action@master
         with:
           buildozer_version: stable
-      - name: Subir APK Final
+      - name: Subir APK
         uses: actions/upload-artifact@v4
         with:
           name: CapoPlay-APK
