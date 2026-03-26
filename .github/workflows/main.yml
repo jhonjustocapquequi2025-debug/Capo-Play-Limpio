@@ -1,14 +1,12 @@
-name: Build APK
-on:
-  push:
-  workflow_dispatch:
+name: Build
+on: [push, workflow_dispatch]
 jobs:
-  build:
+  apk:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Build with Buildozer
-        uses: kivy/buildozer-action@v1
+        uses: kivy/buildozer-action@v1.2.4
         with:
           buildozer_version: stable
       - name: Upload APK
