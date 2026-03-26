@@ -4,14 +4,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Build with Buildozer
-        uses: ArtemShatalov/buildozer-action@v1.2.1
+        uses: ArtemShatalov/buildozer-action@v1
         with:
           workdir: .
-          buildozer_version: master
+          buildozer_version: stable
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: CapoPlay-APK
           path: bin/*.apk
